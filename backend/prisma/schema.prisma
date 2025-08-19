@@ -1,0 +1,330 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// ENUMS
+
+enum UserRole {
+  SYSTEM_OWNER
+  FARM_ADMIN
+  MANAGER
+  EMPLOYEE
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum OAuthProvider {
+  email
+  google
+  facebook
+  apple
+}
+
+enum FarmStatus {
+  ACTIVE
+  INACTIVE
+  TRIAL
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  TRIAL
+  EXPIRED
+  CANCELED
+}
+
+enum PaymentStatus {
+  SUCCESS
+  FAILED
+}
+
+enum AlertType {
+  SUBSCRIPTION_EXPIRING
+  PAYMENT_FAILED
+  SYSTEM
+}
+
+////////////////////
+/// MODELS
+////////////////////
+
+model User {
+  id           String @id @default(uuid())
+  name         String
+  email        String @unique
+  passwordHash String
+
+  // Optional profile info
+  avatarUrl     String?
+  avatarUrlPath String?
+  jobTitle      String?
+  language      String?
+
+  // Role & status
+  role   UserRole
+  status UserStatus @default(ACTIVE)
+
+  // Farm (Organization)
+  farmId String?
+  farm   Farm?   @relation(fields: [farmId], references: [id])
+
+  // Auth & security
+  isVerified           Boolean @default(false)
+  mustChangePassword   Boolean @default(false)
+  forgotPasswordStatus Boolean @default(false)
+
+  // OAuth support
+  oauthProvider   OAuthProvider @default(email)
+  oauthProviderId String?
+
+  // Relations
+  createdTasks  Task[] @relation("CreatedTasks")
+  assignedTasks Task[] @relation("AssignedTasks")
+
+  sentMessages     Message[] @relation("SentMessages")
+  receivedMessages Message[] @relation("ReceivedMessages")
+
+  // Audit
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([role])
+  @@index([farmId])
+  @@index([email])
+}
+
+model Farm {
+  id     String     @id @default(uuid())
+  name   String
+  status FarmStatus @default(ACTIVE)
+
+  country         String?
+  defaultLanguage String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  isMessagingEnabled Boolean @default(true)
+
+  stripeCustomerId String? @unique
+
+  users        User[]
+  subscription Subscription?
+  payments     Payment[]
+  alerts       SystemAlert[]
+
+  tasks    Task[]
+  sops     SOP[]
+  messages Message[]
+
+  @@index([status])
+}
+
+model Plan {
+  id                   String  @id @default(uuid())
+  name                 String  @unique
+  priceMonthly         Int
+  priceYearly          Int
+  stripeMonthlyPriceId String?
+  stripeYearlyPriceId  String?
+  employeeLimit        Int
+  features             String[] @default([])
+  trialDays            Int?
+  isActive             Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  subscriptions Subscription[]
+}
+
+model Subscription {
+  id String @id @default(uuid())
+
+  farmId String @unique
+  farm   Farm   @relation(fields: [farmId], references: [id])
+
+  planId String
+  plan   Plan   @relation(fields: [planId], references: [id])
+
+  status SubscriptionStatus
+
+  startDate DateTime
+  endDate   DateTime
+  price     Int
+  priceType String?
+
+  stripeSubscriptionId String? @unique
+  stripeCustomerId     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Payment {
+  id String @id @default(uuid())
+
+  farmId String
+  farm   Farm   @relation(fields: [farmId], references: [id])
+
+  amount      Int
+  status      PaymentStatus
+  paymentDate DateTime
+
+  // Details at the time of purchase
+  planId    String?
+  planName  String?
+  priceType String? // monthly / yearly
+  periodEnd DateTime? // When this period ends
+
+  stripeInvoiceId String?
+  invoicePdfUrl   String?
+
+  createdAt DateTime @default(now())
+}
+
+model SystemAlert {
+  id      String    @id @default(uuid())
+  type    AlertType
+  message String
+
+  farmId String?
+  farm   Farm?   @relation(fields: [farmId], references: [id])
+
+  isRead    Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum TaskShift {
+  MORNING
+  AFTERNOON
+  EVENING
+}
+
+model Task {
+  id          String     @id @default(uuid())
+  title       String
+  description String?
+  status      TaskStatus @default(PENDING)
+
+  scheduledAt DateTime
+  shift       TaskShift @default(MORNING)
+
+  // Farm scope
+  farmId String
+  farm   Farm   @relation(fields: [farmId], references: [id])
+
+  // Who created the task (manager)
+  createdById String
+  createdBy   User   @relation("CreatedTasks", fields: [createdById], references: [id])
+
+  // Assigned employee
+  assignedToId String?
+  assignedTo   User?   @relation("AssignedTasks", fields: [assignedToId], references: [id])
+
+  completedAt DateTime?
+  completions TaskCompletion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([farmId])
+  @@index([status])
+  @@index([scheduledAt])
+}
+
+enum SOPCategory {
+  MILKING
+  FEEDING
+  HEALTH
+  CALVES
+  MAINTENANCE
+  EMERGENCIES
+}
+
+enum SOPSource {
+  PDF_UPLOAD
+  DIGITAL_EDITOR
+}
+
+model SOP {
+  id       String      @id @default(uuid())
+  title    String
+  category SOPCategory
+
+  source SOPSource @default(PDF_UPLOAD)
+
+  // File info (for download)
+  fileUrl  String?
+  fileName String?
+  fileType String? // pdf / docx
+
+  // AI output
+  parsedContent Json? // AI writes structured SOP here
+  language      String?
+
+  // Status
+  isActive Boolean @default(true)
+
+  // Farm scope
+  farmId String
+  farm   Farm   @relation(fields: [farmId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([farmId])
+  @@index([category])
+}
+
+model Message {
+  id       String  @id @default(uuid())
+  content  String?
+  imageUrl String?
+
+  senderId String
+  sender   User   @relation("SentMessages", fields: [senderId], references: [id])
+
+  receiverId String
+  receiver   User   @relation("ReceivedMessages", fields: [receiverId], references: [id])
+
+  farmId String
+  farm   Farm   @relation(fields: [farmId], references: [id])
+
+  isRead Boolean @default(false)
+
+  createdAt DateTime @default(now())
+
+  @@index([senderId])
+  @@index([receiverId])
+  @@index([farmId])
+}
+
+model TaskCompletion {
+  id String @id @default(uuid())
+
+  taskId String
+  task   Task   @relation(fields: [taskId], references: [id])
+
+  completedBy String // employeeId (User.id)
+  note        String? // 👈 THIS IS YOUR MESSAGE
+
+  completedAt DateTime @default(now())
+
+  @@index([taskId])
+  @@index([completedBy])
+}

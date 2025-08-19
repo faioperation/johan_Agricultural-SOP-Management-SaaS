@@ -1,0 +1,366 @@
+import path from "path";
+import fs from "fs";
+import prisma from "../../../prisma/client.js";
+import { AppError } from "../../../errorHelper/appError.js";
+import { SOPAIService } from "./sop.ai.service.js";
+import { sanitizeFileName } from "../../../utils/file.util.js";
+
+const getAllSOPs = async (req) => {
+  const { role, farmId } = req.user;
+  const { category, search } = req.query;
+
+  if (role !== "FARM_ADMIN") {
+    throw new AppError("Access denied", 403);
+  }
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 400);
+  }
+
+  const sops = await prisma.sOP.findMany({
+    where: {
+      farmId,
+      isActive: true,
+      ...(category && { category }),
+      ...(search && {
+        title: {
+          contains: search,
+          mode: "insensitive",
+        },
+      }),
+    },
+    orderBy: { createdAt: "desc" },
+    select: {
+      id: true,
+      title: true,
+      category: true,
+      fileName: true,
+      createdAt: true,
+    },
+  });
+
+  return sops;
+};
+
+const deleteSOP = async (req) => {
+  const { role, farmId } = req.user;
+  const { id } = req.params;
+
+  if (role !== "FARM_ADMIN") {
+    throw new AppError("Access denied", 403);
+  }
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 400);
+  }
+
+  await prisma.sOP.deleteMany({
+    where: { id, farmId },
+  });
+
+  return {
+    message: "SOP deleted successfully",
+  };
+};
+
+const updateSOP = async (req) => {
+  console.log("--- Update SOP DEBUG ---");
+  console.log("Headers:", req.headers["content-type"]);
+  console.log("Body:", req.body);
+  console.log("File:", req.file ? req.file.originalname : "No file");
+
+  const { role, farmId } = req.user;
+  const { id } = req.params;
+  let { title, category, content } = req.body;
+  const file = req.file;
+
+  if (role !== "FARM_ADMIN") {
+    throw new AppError("Access denied", 403);
+  }
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 400);
+  }
+
+  // Handle multipart/form-data JSON parsing for content if it's a string
+  if (typeof content === "string") {
+    try {
+      content = JSON.parse(content);
+    } catch (error) {
+      throw new AppError("Invalid JSON format for content", 400);
+    }
+  }
+
+  const existingSOP = await prisma.sOP.findFirst({
+    where: { id, farmId, isActive: true },
+  });
+
+  if (!existingSOP) {
+    throw new AppError("SOP not found or access denied", 404);
+  }
+
+  const updateData = {};
+  if (title !== undefined) updateData.title = title;
+  if (category !== undefined) updateData.category = category;
+
+  if (content) {
+    updateData.parsedContent = content;
+    updateData.source = "DIGITAL_EDITOR";
+  }
+
+  if (file) {
+    updateData.fileUrl = `/uploads/sops/${file.filename}`;
+    updateData.fileName = file.originalname;
+    updateData.fileType =
+      path.extname(file.originalname).replace(".", "") || "pdf";
+    if (!content) {
+      updateData.source = "PDF_UPLOAD";
+    }
+
+    // Delete old file if it exists
+    if (existingSOP.fileUrl) {
+      const oldFilePath = path.join(
+        process.cwd(),
+        existingSOP.fileUrl.replace(/^\/+/, ""),
+      );
+      if (fs.existsSync(oldFilePath)) {
+        try {
+          fs.unlinkSync(oldFilePath);
+        } catch (error) {
+          console.error(`Failed to delete old SOP file: ${oldFilePath}`, error);
+        }
+      }
+    }
+  }
+
+  const updatedSOP = await prisma.sOP.update({
+    where: { id },
+    data: updateData,
+  });
+
+  console.log("SOP Updated Successfully:", {
+    id: updatedSOP.id,
+    newTitle: updatedSOP.title,
+    newCategory: updatedSOP.category,
+  });
+
+  return updatedSOP;
+};
+
+const downloadSOP = async (req) => {
+  const { role, farmId } = req.user;
+  const { id } = req.params;
+
+  const allowedRoles = ["FARM_ADMIN", "MANAGER", "EMPLOYEE"];
+
+  if (!allowedRoles.includes(role)) {
+    throw new AppError("Access denied", 403);
+  }
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 400);
+  }
+
+  const sop = await prisma.sOP.findFirst({
+    where: {
+      id,
+      farmId,
+      isActive: true,
+    },
+  });
+
+  if (!sop) {
+    throw new AppError("SOP not found", 404);
+  }
+
+  return sop;
+};
+
+const uploadSOP = async (req) => {
+  const { role, farmId } = req.user;
+  const { title, category } = req.body;
+
+  if (role !== "FARM_ADMIN") {
+    throw new AppError("Access denied", 403);
+  }
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 400);
+  }
+
+  if (!req.file) {
+    throw new AppError("SOP file is required", 400);
+  }
+
+  if (!title || !category) {
+    throw new AppError("Title and category are required", 400);
+  }
+
+  // 1️⃣ Save SOP FIRST (always)
+  const sop = await prisma.sOP.create({
+    data: {
+      title,
+      category,
+      fileUrl: `/uploads/sops/${req.file.filename}`,
+      fileName: req.file.originalname,
+      fileType: path.extname(req.file.originalname).replace(".", "") || "pdf",
+      farmId,
+    },
+  });
+
+  // 2️⃣ Call AI (safe)
+  const aiResult = await SOPAIService.extractSOPFromAI(req.file.path);
+
+  // 3️⃣ Update SOP with AI data (if success)
+  if (aiResult) {
+    await prisma.sOP.update({
+      where: { id: sop.id },
+      data: {
+        parsedContent: aiResult,
+        language: aiResult.language || null,
+      },
+    });
+  }
+
+  return {
+    message: "SOP uploaded successfully",
+    sopId: sop.id,
+    aiProcessed: Boolean(aiResult),
+  };
+};
+
+const createDigitalSOP = async (req) => {
+  const { role, farmId } = req.user;
+  let { title, category, content } = req.body;
+  const file = req.file;
+
+  if (role !== "FARM_ADMIN") {
+    throw new AppError("Access denied", 403);
+  }
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 400);
+  }
+
+  // Handle multipart/form-data JSON parsing for content if it's a string
+  if (typeof content === "string") {
+    try {
+      content = JSON.parse(content);
+    } catch (error) {
+      throw new AppError("Invalid JSON format for content", 400);
+    }
+  }
+
+  if (!title || !category) {
+    throw new AppError("Title and category are required", 400);
+  }
+
+  // Either content or file must be provided
+  if ((!content || typeof content !== "object") && !file) {
+    throw new AppError("Either SOP content or a PDF file is required", 400);
+  }
+
+  const sopData = {
+    title,
+    category,
+    source: content ? "DIGITAL_EDITOR" : "PDF_UPLOAD",
+    farmId,
+    isActive: true,
+  };
+
+  if (content && typeof content === "object") {
+    sopData.parsedContent = content;
+  }
+
+  if (file) {
+    sopData.fileUrl = `/uploads/sops/${file.filename}`;
+    sopData.fileName = file.originalname;
+    sopData.fileType =
+      path.extname(file.originalname).replace(".", "") || "pdf";
+  }
+
+  const sop = await prisma.sOP.create({
+    data: sopData,
+  });
+
+  return sop;
+};
+
+const uploadPDFSOP = async (req) => {
+  const { title, category } = req.body;
+  const file = req.file;
+
+  if (!file) {
+    throw new AppError("PDF file is required", 400);
+  }
+
+  if (!title || !category) {
+    throw new AppError("Title and category are required", 400);
+  }
+
+  const farmId = req.user?.farmId;
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 403);
+  }
+
+  // multer already saved the file correctly
+  const relativeFilePath = path.join(
+    "uploads",
+    "sops",
+    path.basename(file.path),
+  );
+
+  const sop = await prisma.sOP.create({
+    data: {
+      title,
+      category,
+      source: "PDF_UPLOAD",
+      fileUrl: relativeFilePath,
+      fileName: file.originalname,
+      fileType: "pdf",
+      parsedContent: null,
+      farmId,
+    },
+  });
+
+  return sop;
+};
+
+const getSOPById = async (req) => {
+  const { role, farmId } = req.user;
+  const { id } = req.params;
+
+  if (role !== "FARM_ADMIN") {
+    throw new AppError("Access denied", 403);
+  }
+
+  if (!farmId) {
+    throw new AppError("Farm context missing", 400);
+  }
+
+  const sop = await prisma.sOP.findFirst({
+    where: {
+      id,
+      farmId,
+      isActive: true,
+    },
+  });
+
+  if (!sop) {
+    throw new AppError("SOP not found", 404);
+  }
+
+  return sop;
+};
+
+export const SOPService = {
+  getAllSOPs,
+  getSOPById,
+  deleteSOP,
+  downloadSOP,
+  updateSOP,
+  uploadSOP,
+  createDigitalSOP,
+  uploadPDFSOP,
+};
