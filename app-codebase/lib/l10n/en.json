@@ -1,0 +1,425 @@
+{
+  "profile_name": "John Smith",
+  "farm_check": "Farm Check",
+
+  "employee_account": "Employee Account\nYour account has limited access.",
+
+  "language": "Language",
+  "english": "English",
+  "dutch": "Dutch",
+
+  "change_password": "Change Password",
+  "update_password": "Update your password",
+
+  "logout": "Logout",
+  "sign_out": "Sign out of your account",
+
+  "logout_title": "Logout",
+  "logout_confirm": "Are you sure you want to logout\nfrom your account?",
+  "cancel": "Cancel",
+  "select_language": "Select Language",
+  "english": "English",
+  "dutch": "Dutch",
+  "cancel": "Cancel",
+  "change_password": "Change Password",
+  "current_password": "Current Password",
+  "new_password": "New Password",
+  "confirm_password": "Confirm Password",
+  "cancel": "Cancel",
+  "save": "Save",
+  "good_morning": "Good Morning",
+  "profile_name": "John Smith",
+  "farm_check": "Farm check",
+
+  "todays_tasks": "Today's Tasks",
+  "view_all_tasks": "View All Tasks",
+
+  "quick_access": "Quick Access",
+  "view_sops": "View SOPs",
+  "work_procedures": "Work procedures",
+  "messages": "Messages",
+  "contact_manager": "Contact manager",
+
+  "recent_activity": "Recent Activity",
+  "milk_collection_completed": "Milk Collection Completed",
+  "feeding_completed": "Feeding Completed",
+  "clean_barn_area": "Clean Barn Area",
+
+  "completed_at_6": "Completed at 6:00 AM",
+  "completed_at_730": "Completed at 7:30 AM",
+
+  "pending": "Pending",
+
+  "manager_name": "John Manager",
+  "manager": "Manager",
+  "today": "Today",
+
+  "msg_shift_changed": "Your shift has been changed from morning to afternoon tomorrow",
+  "msg_ok_understood": "Okay sir, understood",
+  "msg_special_feed": "Need to prepare special feed for new cattle #156",
+  "msg_where_feed": "Where can I find the special feed?",
+  "msg_store_room": "In the store room, bags with blue tags. Need to give 3 kg.",
+  "msg_thank_you": "Thank you sir, will do it now",
+
+  "write_message": "Write a message...",
+  "cannot_delete_chat": "You cannot delete this chat",
+  "messages": "Messages",
+  "search_messages": "Search messages...",
+
+  "john_manager": "John Manager",
+  "admin": "Admin",
+  "manager": "Manager",
+  "vet_doctor": "Veterinary Doctor",
+
+  "msg_shift_change_short": "Tomorrow Shift Change\nYour shift has been changed from morning...",
+  "msg_new_sop": "New SOP Update\nNew guidelines have been added to milk...",
+  "msg_health_update": "Cattle #123 Health Update\nHealth inspection for cattle #123 is comp...",
+  "msg_weekly_meeting": "Weekly Meeting\nWeekly meeting will be held next Friday...",
+
+  "time_2_hours": "2 hours ago",
+  "time_5_hours": "5 hours ago",
+  "time_2_days": "2 days ago",
+  "yesterday": "Yesterday",
+
+  "about_messages": "About Messages",
+  "about_msg_1": "• You can send messages to manager and admin",
+  "about_msg_2": "• Messages cannot be deleted",
+  "about_msg_3": "• Report issues or questions here",
+  "sop_modules": "SOP Modules",
+  "milking": "Milking",
+  "animal_health": "Animal Health",
+  "feeding": "Feeding",
+  "cleaning": "Cleaning",
+  "emergency": "Emergency",
+
+  "about_sops": "About SOPs",
+  "about_sops_desc": "SOP (Standard Operating Procedure) is a standard work method. Follow these guidelines to do each task correctly.",
+  "sop_morning_milk_title": "Morning Milk Collection",
+  "sop_available_offline": "This document is available offline",
+  "sop_morning_milk_heading": "Morning Milk Collection\nProcedure",
+
+  "sop_intro": "Introduction",
+  "sop_intro_desc": "This SOP document describes the detailed procedure for morning milk collection to ensure hygiene, safety, and quality.",
+
+  "sop_required_equipment": "Required Equipment",
+  "sop_eq_bucket": "Clean bucket",
+  "sop_eq_machine": "Milk collection machine",
+  "sop_eq_disinfectant": "Disinfectant",
+  "sop_eq_towel": "Clean towel",
+  "sop_eq_gloves": "Protective gloves",
+
+  "sop_steps": "Steps",
+
+  "sop_step1_title": "Step 1: Preparation",
+  "sop_step1_1": "Wash hands thoroughly",
+  "sop_step1_2": "Wear gloves",
+  "sop_step1_3": "Disinfect equipment",
+
+  "sop_step2_title": "Step 2: Prepare the Cattle",
+  "sop_step2_1": "Calm the animal",
+  "sop_step2_2": "Clean the udder",
+  "sop_step2_3": "Discard first few drops of milk",
+
+  "sop_step3_title": "Step 3: Milk Collection",
+  "sop_step3_1": "Attach the machine correctly",
+  "sop_step3_2": "Check pressure regularly",
+  "sop_step3_3": "Collect all milk completely",
+
+  "sop_step4_title": "Step 4: Cleanliness",
+  "sop_step4_1": "Remove the machine",
+  "sop_step4_2": "Clean the udder again",
+  "sop_step4_3": "Wash all equipment",
+
+  "sop_safety": "Safety Precautions",
+  "sop_safety_1": "Always wear gloves",
+  "sop_safety_2": "Do not stand behind the cattle",
+  "sop_safety_3": "Do not work if you have cuts or wounds",
+
+  "sop_quality": "Quality Check",
+  "sop_quality_1": "Check milk color",
+  "sop_quality_2": "Measure temperature (below 4°C)",
+  "sop_quality_3": "Notify manager if abnormalities",
+
+  "sop_emergency": "Emergency Contacts",
+  "sop_emergency_desc": "Manager: 01XXXXXXXXX\nVeterinary Doctor: 01XXXXXXXXX",
+
+  "sop_last_updated": "Last Updated: 2026-01-05",
+  "sop_language": "Language: English",
+  "milking": "Milking",
+  "sops_found": "SOPs found",
+
+  "sop_cleaning_equipment": "Cleaning Milking Equipment",
+  "sop_machine_operation": "Milking Machine Operation",
+  "sop_cattle_health": "Cattle Health Inspection",
+  "sop_quality_control": "Quality Control Guidelines",
+
+  "available_offline": "Available Offline",
+  "download": "Download",
+  "last_updated": "Last updated",
+
+  "sop_tip_offline": "Tip: Offline SOPs can be read without internet. Tap on a SOP to view details.",
+  "my_tasks": "My Tasks",
+  "today": "Today",
+  "upcoming": "Upcoming",
+  "completed": "Completed",
+  "todays_progress": "Today's Progress",
+  "tasks_completed": "Tasks Completed",
+
+  "morning": "Morning",
+  "afternoon": "Afternoon",
+  "evening": "Evening",
+
+  "task_clean_barn": "Clean Barn Area",
+  "task_clean_barn_sub": "Clean barn and surrounding areas",
+
+  "task_evening_milk": "Evening Milk Collection",
+  "task_evening_milk_sub": "Evening milk collection",
+
+  "task_health_inspection": "Health Inspection",
+  "task_health_inspection_sub": "Conduct health inspection of cattle",
+
+  "task_water_supply": "Check Water Supply",
+  "task_water_supply_sub": "Check if all water tanks are full",
+
+  "task_prepare_feed": "Prepare Feed (Tomorrow)",
+  "task_prepare_feed_sub": "Prepare feed for tomorrow",
+
+  "task_clean_equipment": "Clean Equipment",
+  "task_clean_equipment_sub": "Clean milk collection equipment",
+
+  "task_details": "Task Details",
+  "completed": "Completed",
+  "pending": "Pending",
+  "task_completed_desc": "This task has been completed",
+  "task_pending_desc": "This task is not yet completed",
+
+  "description": "Description",
+  "time": "Time",
+  "shift": "Shift",
+
+  "instructions": "📘 Instructions",
+  "instruction_1": "Read the related SOP before starting work",
+  "instruction_2": "Follow all safety regulations",
+  "instruction_3": "Click the button below when task is complete",
+  "instruction_4": "Notify manager if any problems occur",
+
+  "add_note": "Add Note (Optional)",
+  "add_note_hint": "Write any comments or notes about this task...",
+
+  "mark_complete": "Mark as Complete",
+
+  "nav_home": "Home",
+  "nav_sops": "SOPs",
+  "nav_messages": "Messages",
+  "nav_profile": "Profile",
+  "nav_employee": "Employee",
+  "employee_details": "Employee Details",
+  "status_active": "Active",
+  "farm_worker": "Farm Worker",
+  "joined": "Joined",
+  "current_tasks": "Current Tasks",
+  "completed": "Completed",
+  "total_tasks": "Total Tasks",
+  "current_tasks_tab": "Current Tasks ({})",
+  "completed_tasks_tab": "Completed Tasks ({})",
+  "morning_feeding": "Morning feeding schedule",
+  "equipment_check": "Equipment maintenance check",
+  "shift_morning": "Morning",
+  "shift_afternoon": "Afternoon",
+  "in_progress": "In Progress",
+  "pending": "Pending",
+
+  "employee": "Employee",
+  "search_team": "Search team...",
+  "filter_all": "All",
+  "filter_active": "Active",
+  "filter_inactive": "Inactive",
+  "joined_label": "Joined: {}",
+  "tasks_done": "Tasks Done",
+  "current_tasks": "Current Tasks",
+  "view_tasks": "View Tasks",
+  "farm_worker": "Farm Worker",
+  "dairy_specialist": "Dairy Specialist",
+  "app_name": "Farm check",
+  "manager_portal": "MANAGER PORTAL",
+  "dashboard": "Dashboard",
+
+  "total_tasks": "TOTAL TASKS",
+  "pending": "PENDING",
+  "messages": "MESSAGES",
+  "sops": "SOPS",
+
+  "todays_tasks": "Today's Tasks",
+  "view_all": "View All →",
+
+  "assigned_to": "Assigned to: {}",
+
+  "morning_feeding": "Morning feeding schedule",
+  "milk_collection": "Milk collection and storage",
+  "barn_cleaning": "Barn cleaning",
+
+  "profile": "Profile",
+  "profile_subtitle": "Your account and preferences",
+  "manager": "Manager",
+  "general": "GENERAL",
+
+  "language": "Language",
+  "select_language": "Select Language",
+
+  "logout": "Logout",
+  "logout_sub": "Sign out of your account",
+  "logout_confirm": "Are you sure you want to logout?",
+  "cancel": "Cancel",
+
+  "app_name": "Farm Check",
+
+  "today": "Today",
+
+  "chat_user_name": "John Manager",
+  "chat_user_role": "Manager",
+
+  "chat_write_message": "Write a message...",
+  "chat_cannot_delete": "You cannot delete this chat",
+
+  "chat_msg_shift_change": "Your shift has been changed from morning to afternoon tomorrow",
+  "chat_msg_ok": "Okay sir, understood",
+  "chat_msg_special_feed": "Need to prepare special feed for new cattle #156",
+  "chat_msg_where_feed": "Where can I find the special feed?",
+  "chat_msg_store_room": "In the store room, bags with blue tags. Need to give 3 kg.",
+  "chat_msg_thanks": "Thank you sir, will do it now",
+
+  "manager_sop_title": "Daily Feeding Protocol",
+  "manager_sop_subtitle": "Feeding • Uploaded by Admin",
+  "manager_sop_uploaded": "Uploaded Jan 5, 2026",
+  "download_pdf": "Download PDF",
+
+  "procedure_details": "PROCEDURE DETAILS",
+  "objective": "Objective",
+  "scope": "Scope",
+  "steps": "Steps",
+
+  "manager_sop_objective": "To ensure all livestock receive appropriate nutrition according to their growth stage.",
+  "manager_sop_scope": "This procedure applies to all feed management staff and barn supervisors.",
+
+  "manager_sop_step_1": "Check feed inventory levels.",
+  "manager_sop_step_2": "Inspect feed quality for mold or moisture.",
+  "manager_sop_step_3": "Measure portions per \"Feed Ration Chart\".",
+  "manager_sop_step_4": "Distribute feed evenly across troughs.",
+  "manager_sop_step_5": "Clean troughs after feeding.",
+
+  "manager_sop_note": "Important Note:\nReport any feed refusal to the Veterinary Officer immediately.",
+
+  "manager_sop_modules_title": "SOP Modules",
+
+  "sop_milking": "Milking",
+  "sop_milking_sub": "Milking",
+
+  "sop_animal_health": "Animal Health",
+  "sop_animal_health_sub": "Animal health",
+
+  "sop_feeding": "Feeding",
+  "sop_feeding_sub": "Feeding",
+
+  "sop_cleaning": "Cleaning",
+  "sop_cleaning_sub": "Cleaning",
+
+  "sop_emergency": "Emergency",
+  "sop_emergency_sub": "Emergency",
+
+  "about_sops_title": "About SOPs",
+  "about_sops_desc":
+  "SOP (Standard Operating Procedure) is a standard work method. Follow these guidelines to do each task correctly.",
+  "manager_sops_title": "SOPs",
+  "search_documents": "Search documents...",
+
+  "sop_cat_all": "All",
+  "sop_cat_operations": "Operations",
+  "sop_cat_safety": "Safety",
+  "sop_cat_feeding": "Feeding",
+  "sop_cat_health": "Health",
+
+  "sop_title_feeding": "Daily Feeding Protocol",
+  "sop_title_milking": "Milking Procedures",
+  "sop_title_safety": "Health & Safety Guidelines",
+  "sop_title_equipment": "Equipment Maintenance",
+  "sop_title_vaccination": "Vaccination Schedule",
+
+  "create_task_title": "Create Task",
+  "edit_task_title": "Edit Task",
+
+  "task_title_label": "Task Title *",
+  "task_title_hint": "e.g. Morning feeding schedule",
+
+  "task_description_label": "Description",
+  "task_description_hint": "Detailed task instructions...",
+
+  "assign_employee": "Assign Employees *",
+
+  "date_label": "Date *",
+  "time_label": "Due Time *",
+  "date_hint": "05/20/26",
+  "time_hint": "05:02 PM",
+
+  "shift_label": "Shift *",
+  "sop_label": "SOP (Optional)",
+
+  "create_task_button": "Create Task",
+  "save_changes": "Save Changes",
+  "cancel": "Cancel",
+
+  "emp_john_doe": "John Doe",
+  "emp_alex_smith": "Alex Smith",
+
+  "shift_morning": "Morning",
+  "shift_afternoon": "Afternoon",
+  "shift_evening": "Evening",
+
+  "sop_select": "Select SOP",
+  "sop_feeding": "Feeding Protocol",
+  "sop_milking": "Milking SOP",
+
+  "task_details_title": "Task Details",
+  "edit_task": "Edit Task",
+
+  "task_demo_title": "Morning feeding schedule",
+  "task_demo_description": "Complete the morning feeding routine for all livestock.",
+  "task_demo_long_description": "Complete the morning feeding routine for all livestock. Ensure proper portions according to the feeding protocol.",
+
+  "status_completed": "Completed",
+
+  "assigned_to": "Assigned To",
+  "due_time": "Due Time",
+  "date": "Date",
+  "linked_sop": "Linked SOP",
+
+  "update_status": "Update Status:",
+  "reset_to_pending": "Reset to Pending",
+
+  "tasks_title": "Tasks",
+  "create_task": "Create Task",
+  "search_tasks": "Search tasks...",
+
+  "task_demo_title": "Morning feeding schedule",
+  "task_demo_title_2": "Milk collection and store",
+
+  "task_card_subtitle": "John Doe · 6:00 AM · Morning",
+
+  "status_completed": "Completed",
+  "status_pending": "Pending",
+
+  "profile_title": "Profile",
+  "profile_subtitle": "Your account and preferences",
+  "profile_role_manager": "Manager",
+  "profile_company": "Farm Check",
+  "profile_general": "GENERAL",
+
+  "language": "Language",
+  "language_english": "English",
+
+  "logout": "Logout",
+  "logout_subtitle": "Sign out of your account",
+  "logout_confirm": "Are you sure you want to logout?",
+  "cancel": "Cancel"
+
+
+}

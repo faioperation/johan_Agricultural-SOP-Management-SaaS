@@ -1,0 +1,423 @@
+{
+  "profile_name": "John Smith",
+  "farm_check": "Farm Check",
+
+  "employee_account": "Werknemersaccount\nUw account heeft beperkte toegang.",
+
+  "language": "Taal",
+  "english": "Engels",
+  "dutch": "Nederlands",
+
+  "change_password": "Wachtwoord wijzigen",
+  "update_password": "Werk uw wachtwoord bij",
+
+  "logout": "Uitloggen",
+  "sign_out": "Afmelden van uw account",
+
+  "logout_title": "Uitloggen",
+  "logout_confirm": "Weet u zeker dat u wilt uitloggen\nvan uw account?",
+  "cancel": "Annuleren",
+  "select_language": "Selecteer taal",
+  "english": "Engels",
+  "dutch": "Nederlands",
+  "cancel": "Annuleren",
+  "change_password": "Wachtwoord wijzigen",
+  "current_password": "Huidig wachtwoord",
+  "new_password": "Nieuw wachtwoord",
+  "confirm_password": "Bevestig wachtwoord",
+  "cancel": "Annuleren",
+  "save": "Opslaan",
+  "good_morning": "Goedemorgen",
+  "profile_name": "John Smith",
+  "farm_check": "Farm check",
+
+  "todays_tasks": "Taken van vandaag",
+  "view_all_tasks": "Alle taken bekijken",
+
+  "quick_access": "Snelle toegang",
+  "view_sops": "SOP's bekijken",
+  "work_procedures": "Werkprocedures",
+  "messages": "Berichten",
+  "contact_manager": "Contact opnemen met manager",
+
+  "recent_activity": "Recente activiteit",
+  "milk_collection_completed": "Melkverzameling voltooid",
+  "feeding_completed": "Voeding voltooid",
+  "clean_barn_area": "Schuur schoonmaken",
+
+  "completed_at_6": "Voltooid om 6:00",
+  "completed_at_730": "Voltooid om 7:30",
+
+  "pending": "In behandeling",
+
+  "manager_name": "John Manager",
+  "manager": "Manager",
+  "today": "Vandaag",
+
+  "msg_shift_changed": "Je dienst is morgen gewijzigd van ochtend naar middag",
+  "msg_ok_understood": "Oké meneer, begrepen",
+  "msg_special_feed": "Er moet speciaal voer worden voorbereid voor nieuw vee #156",
+  "msg_where_feed": "Waar kan ik het speciale voer vinden?",
+  "msg_store_room": "In de opslagruimte, zakken met blauwe labels. Geef 3 kg.",
+  "msg_thank_you": "Dank u meneer, ik ga het nu doen",
+
+  "write_message": "Schrijf een bericht...",
+  "cannot_delete_chat": "Je kunt deze chat niet verwijderen",
+  "messages": "Berichten",
+  "search_messages": "Zoek berichten...",
+
+  "john_manager": "John Manager",
+  "admin": "Admin",
+  "manager": "Manager",
+  "vet_doctor": "Dierenarts",
+
+  "msg_shift_change_short": "Dienstwijziging morgen\nJe dienst is gewijzigd van ochtend...",
+  "msg_new_sop": "Nieuwe SOP-update\nNieuwe richtlijnen zijn toegevoegd...",
+  "msg_health_update": "Gezondheidsupdate rund #123\nInspectie is voltooid...",
+  "msg_weekly_meeting": "Wekelijkse vergadering\nDe vergadering vindt volgende vrijdag plaats...",
+
+  "time_2_hours": "2 uur geleden",
+  "time_5_hours": "5 uur geleden",
+  "time_2_days": "2 dagen geleden",
+  "yesterday": "Gisteren",
+
+  "about_messages": "Over berichten",
+  "about_msg_1": "• Je kunt berichten sturen naar manager en admin",
+  "about_msg_2": "• Berichten kunnen niet worden verwijderd",
+  "about_msg_3": "• Meld hier problemen of vragen",
+
+  "sop_modules": "SOP-modules",
+  "milking": "Melken",
+  "animal_health": "Diergezondheid",
+  "feeding": "Voeding",
+  "cleaning": "Reiniging",
+  "emergency": "Noodsituatie",
+
+  "about_sops": "Over SOP's",
+  "about_sops_desc": "SOP (Standaard Werkprocedure) is een vaste werkmethode. Volg deze richtlijnen om elke taak correct uit te voeren.",
+  "sop_morning_milk_title": "Ochtendmelk Verzameling",
+  "sop_available_offline": "Dit document is offline beschikbaar",
+  "sop_morning_milk_heading": "Ochtendmelk Verzameling\nProcedure",
+
+  "sop_intro": "Inleiding",
+  "sop_intro_desc": "Dit SOP-document beschrijft de gedetailleerde procedure voor het verzamelen van ochtendmelk om hygiëne, veiligheid en kwaliteit te garanderen.",
+
+  "sop_required_equipment": "Benodigde Apparatuur",
+  "sop_eq_bucket": "Schone emmer",
+  "sop_eq_machine": "Melkverzamelmachine",
+  "sop_eq_disinfectant": "Desinfectiemiddel",
+  "sop_eq_towel": "Schone handdoek",
+  "sop_eq_gloves": "Beschermende handschoenen",
+
+  "sop_steps": "Stappen",
+
+  "sop_step1_title": "Stap 1: Voorbereiding",
+  "sop_step1_1": "Was handen grondig",
+  "sop_step1_2": "Draag handschoenen",
+  "sop_step1_3": "Desinfecteer apparatuur",
+
+  "sop_step2_title": "Stap 2: Bereid het vee voor",
+  "sop_step2_1": "Kalmeer het dier",
+  "sop_step2_2": "Reinig de uier",
+  "sop_step2_3": "Gooi de eerste melk weg",
+
+  "sop_step3_title": "Stap 3: Melkverzameling",
+  "sop_step3_1": "Bevestig de machine correct",
+  "sop_step3_2": "Controleer regelmatig de druk",
+  "sop_step3_3": "Verzamel alle melk volledig",
+
+  "sop_step4_title": "Stap 4: Reinheid",
+  "sop_step4_1": "Verwijder de machine",
+  "sop_step4_2": "Reinig de uier opnieuw",
+  "sop_step4_3": "Was alle apparatuur",
+
+  "sop_safety": "Veiligheidsmaatregelen",
+  "sop_safety_1": "Draag altijd handschoenen",
+  "sop_safety_2": "Sta niet achter het vee",
+  "sop_safety_3": "Werk niet met snijwonden of verwondingen",
+
+  "sop_quality": "Kwaliteitscontrole",
+  "sop_quality_1": "Controleer de melkkleur",
+  "sop_quality_2": "Meet de temperatuur (onder 4°C)",
+  "sop_quality_3": "Informeer de manager bij afwijkingen",
+
+  "sop_emergency": "Noodcontacten",
+  "sop_emergency_desc": "Manager: 01XXXXXXXXX\nDierenarts: 01XXXXXXXXX",
+
+  "sop_last_updated": "Laatst bijgewerkt: 2026-01-05",
+  "sop_language": "Taal: Nederlands",
+
+  "milking": "Melken",
+  "sops_found": "SOP's gevonden",
+
+  "sop_cleaning_equipment": "Reiniging van melkapparatuur",
+  "sop_machine_operation": "Bediening van melkmachine",
+  "sop_cattle_health": "Gezondheidscontrole van vee",
+  "sop_quality_control": "Richtlijnen voor kwaliteitscontrole",
+
+  "available_offline": "Offline beschikbaar",
+  "download": "Downloaden",
+  "last_updated": "Laatst bijgewerkt",
+
+  "sop_tip_offline": "Tip: Offline SOP's kunnen zonder internet worden gelezen. Tik op een SOP om details te bekijken.",
+  "my_tasks": "Mijn taken",
+  "today": "Vandaag",
+  "upcoming": "Aankomend",
+  "completed": "Voltooid",
+  "todays_progress": "Voortgang van vandaag",
+  "tasks_completed": "Taken voltooid",
+
+  "morning": "Ochtend",
+  "afternoon": "Middag",
+  "evening": "Avond",
+
+  "task_clean_barn": "Stal schoonmaken",
+  "task_clean_barn_sub": "Stal en omliggende gebieden schoonmaken",
+
+  "task_evening_milk": "Avondmelk verzamelen",
+  "task_evening_milk_sub": "Avondmelk verzamelen",
+
+  "task_health_inspection": "Gezondheidsinspectie",
+  "task_health_inspection_sub": "Gezondheidsinspectie van vee uitvoeren",
+
+  "task_water_supply": "Watervoorziening controleren",
+  "task_water_supply_sub": "Controleren of alle watertanks vol zijn",
+
+  "task_prepare_feed": "Voer voorbereiden (morgen)",
+  "task_prepare_feed_sub": "Voer voorbereiden voor morgen",
+
+  "task_clean_equipment": "Apparatuur schoonmaken",
+  "task_clean_equipment_sub": "Melkapparatuur schoonmaken",
+
+  "task_details": "Taakdetails",
+  "completed": "Voltooid",
+  "pending": "In behandeling",
+  "task_completed_desc": "Deze taak is voltooid",
+  "task_pending_desc": "Deze taak is nog niet voltooid",
+
+  "description": "Beschrijving",
+  "time": "Tijd",
+  "shift": "Dienst",
+
+  "instructions": "📘 Instructies",
+  "instruction_1": "Lees de bijbehorende SOP voordat je begint",
+  "instruction_2": "Volg alle veiligheidsvoorschriften",
+  "instruction_3": "Klik op de knop wanneer de taak voltooid is",
+  "instruction_4": "Meld problemen aan de manager",
+
+  "add_note": "Notitie toevoegen (optioneel)",
+  "add_note_hint": "Schrijf opmerkingen of notities over deze taak...",
+
+  "mark_complete": "Markeren als voltooid",
+  "nav_home": "Start",
+  "nav_sops": "SOP's",
+  "nav_messages": "Berichten",
+  "nav_profile": "Profiel",
+  "nav_employee": "Medewerker",
+  "employee_details": "Werknemersgegevens",
+  "status_active": "Actief",
+  "farm_worker": "Boerderijmedewerker",
+  "joined": "In dienst sinds",
+  "current_tasks": "Huidige taken",
+  "completed": "Voltooid",
+  "total_tasks": "Totale taken",
+  "current_tasks_tab": "Huidige taken ({})",
+  "completed_tasks_tab": "Voltooide taken ({})",
+  "morning_feeding": "Ochtend voerschema",
+  "equipment_check": "Controle van apparatuur",
+  "shift_morning": "Ochtend",
+  "shift_afternoon": "Middag",
+  "in_progress": "Bezig",
+  "pending": "In afwachting",
+  "employee": "Werknemers",
+  "search_team": "Zoek team...",
+  "filter_all": "Alles",
+  "filter_active": "Actief",
+  "filter_inactive": "Inactief",
+  "joined_label": "In dienst sinds: {}",
+  "tasks_done": "Taken voltooid",
+  "current_tasks": "Huidige taken",
+  "view_tasks": "Taken bekijken",
+  "farm_worker": "Boerderijmedewerker",
+  "dairy_specialist": "Zuivelspecialist",
+  "app_name": "Farm check",
+  "manager_portal": "MANAGER PORTAAL",
+  "dashboard": "Dashboard",
+
+  "total_tasks": "TOTALE TAKEN",
+  "pending": "IN AFWACHTING",
+  "messages": "BERICHTEN",
+  "sops": "SOP's",
+
+  "todays_tasks": "Taken van vandaag",
+  "view_all": "Alles bekijken →",
+
+  "assigned_to": "Toegewezen aan: {}",
+
+  "morning_feeding": "Ochtend voedingsschema",
+  "milk_collection": "Melkverzameling en opslag",
+  "barn_cleaning": "Stal schoonmaken",
+  "profile": "Profiel",
+  "profile_subtitle": "Uw account en voorkeuren",
+  "manager": "Manager",
+  "general": "ALGEMEEN",
+
+  "language": "Taal",
+  "select_language": "Selecteer taal",
+
+  "logout": "Uitloggen",
+  "logout_sub": "Meld u af van uw account",
+  "logout_confirm": "Weet u zeker dat u wilt uitloggen?",
+  "cancel": "Annuleren",
+
+  "app_name": "Farm Check",
+
+  "today": "Vandaag",
+
+  "chat_user_name": "John Manager",
+  "chat_user_role": "Manager",
+
+  "chat_write_message": "Schrijf een bericht...",
+  "chat_cannot_delete": "Je kunt deze chat niet verwijderen",
+
+  "chat_msg_shift_change": "Je dienst is morgen gewijzigd van ochtend naar middag",
+  "chat_msg_ok": "Oké meneer, begrepen",
+  "chat_msg_special_feed": "Special voer voorbereiden voor nieuw vee #156",
+  "chat_msg_where_feed": "Waar kan ik het speciale voer vinden?",
+  "chat_msg_store_room": "In de opslagruimte, zakken met blauwe labels. Geef 3 kg.",
+  "chat_msg_thanks": "Dank u meneer, ik doe het nu",
+
+  "manager_sop_title": "Dagelijks Voerprotocol",
+  "manager_sop_subtitle": "Voeding • Geüpload door Admin",
+  "manager_sop_uploaded": "Geüpload op 5 jan 2026",
+  "download_pdf": "PDF downloaden",
+
+  "procedure_details": "PROCEDUREDETAILS",
+  "objective": "Doel",
+  "scope": "Toepassingsgebied",
+  "steps": "Stappen",
+
+  "manager_sop_objective": "Zorgen dat alle dieren de juiste voeding krijgen volgens hun groeifase.",
+  "manager_sop_scope": "Deze procedure geldt voor alle medewerkers en stalbeheerders.",
+
+  "manager_sop_step_1": "Controleer het voervoorraadniveau.",
+  "manager_sop_step_2": "Controleer de kwaliteit van het voer op schimmel of vocht.",
+  "manager_sop_step_3": "Meet porties volgens het \"Voerrantsoendiagram\".",
+  "manager_sop_step_4": "Verdeel het voer gelijkmatig over de voederbakken.",
+  "manager_sop_step_5": "Maak de voederbakken schoon na het voeren.",
+
+  "manager_sop_note": "Belangrijke opmerking:\nMeld elke voerweigering onmiddellijk aan de dierenarts.",
+
+  "manager_sop_modules_title": "SOP-modules",
+
+  "sop_milking": "Melken",
+  "sop_milking_sub": "Melken",
+
+  "sop_animal_health": "Diergezondheid",
+  "sop_animal_health_sub": "Diergezondheid",
+
+  "sop_feeding": "Voeding",
+  "sop_feeding_sub": "Voeding",
+
+  "sop_cleaning": "Reiniging",
+  "sop_cleaning_sub": "Reiniging",
+
+  "sop_emergency": "Noodgeval",
+  "sop_emergency_sub": "Noodgeval",
+
+  "about_sops_title": "Over SOP’s",
+  "about_sops_desc":
+  "SOP (Standaard Werkprocedure) is een vaste werkwijze. Volg deze richtlijnen om elke taak correct uit te voeren.",
+  "manager_sops_title": "SOP’s",
+  "search_documents": "Zoek documenten...",
+
+  "sop_cat_all": "Alles",
+  "sop_cat_operations": "Operaties",
+  "sop_cat_safety": "Veiligheid",
+  "sop_cat_feeding": "Voeding",
+  "sop_cat_health": "Gezondheid",
+
+  "sop_title_feeding": "Dagelijks Voedingsprotocol",
+  "sop_title_milking": "Melkprocedures",
+  "sop_title_safety": "Gezondheids- en Veiligheidsrichtlijnen",
+  "sop_title_equipment": "Onderhoud van Apparatuur",
+  "sop_title_vaccination": "Vaccinatieschema",
+
+  "create_task_title": "Taak Aanmaken",
+  "edit_task_title": "Taak Bewerken",
+
+  "task_title_label": "Taaktitel *",
+  "task_title_hint": "Bijv. Ochtend voerschema",
+
+  "task_description_label": "Beschrijving",
+  "task_description_hint": "Gedetailleerde taak instructies...",
+
+  "assign_employee": "Medewerker Toewijzen *",
+
+  "date_label": "Datum *",
+  "time_label": "Tijd *",
+  "date_hint": "20-05-26",
+  "time_hint": "17:02",
+
+  "shift_label": "Dienst *",
+  "sop_label": "SOP (Optioneel)",
+
+  "create_task_button": "Taak Aanmaken",
+  "save_changes": "Wijzigingen Opslaan",
+  "cancel": "Annuleren",
+
+  "emp_john_doe": "John Doe",
+  "emp_alex_smith": "Alex Smith",
+
+  "shift_morning": "Ochtend",
+  "shift_afternoon": "Middag",
+  "shift_evening": "Avond",
+
+  "sop_select": "Selecteer SOP",
+  "sop_feeding": "Voedingsprotocol",
+  "sop_milking": "Melk SOP",
+
+  "task_details_title": "Taakdetails",
+  "edit_task": "Taak Bewerken",
+
+  "task_demo_title": "Ochtend voerschema",
+  "task_demo_description": "Voltooi de ochtendvoerroutine voor alle dieren.",
+  "task_demo_long_description": "Voltooi de ochtendvoerroutine voor alle dieren. Zorg voor de juiste porties volgens het voedingsprotocol.",
+
+  "status_completed": "Voltooid",
+
+  "assigned_to": "Toegewezen Aan",
+  "due_time": "Uiterste Tijd",
+  "date": "Datum",
+  "linked_sop": "Gekoppelde SOP",
+
+  "update_status": "Status Bijwerken:",
+  "reset_to_pending": "Terugzetten naar In Afwachting",
+
+  "tasks_title": "Taken",
+  "create_task": "Taak Aanmaken",
+  "search_tasks": "Taken zoeken...",
+
+  "task_demo_title": "Ochtend voerschema",
+  "task_demo_title_2": "Melk ophalen en opslaan",
+
+  "task_card_subtitle": "John Doe · 6:00 AM · Ochtend",
+
+  "status_completed": "Voltooid",
+  "status_pending": "In Afwachting",
+  "profile_title": "Profiel",
+  "profile_subtitle": "Uw account en voorkeuren",
+  "profile_role_manager": "Manager",
+  "profile_company": "Farm Check",
+  "profile_general": "ALGEMEEN",
+
+  "language": "Taal",
+  "language_english": "Engels",
+
+  "logout": "Uitloggen",
+  "logout_subtitle": "Meld u af van uw account",
+  "logout_confirm": "Weet u zeker dat u wilt uitloggen?",
+  "cancel": "Annuleren"
+
+
+}
