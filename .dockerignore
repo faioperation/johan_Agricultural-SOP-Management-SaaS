@@ -1,0 +1,17 @@
+.git
+node_modules
+dist
+build
+.env
+*.log
+*.jks
+.gradle
+.idea
+.vscode
+flutter_native_splash.yaml
+analysis_options.yaml
+pubspec.lock
+pubspec.yaml
+upload-keystore.jks
+CVS
+.svn

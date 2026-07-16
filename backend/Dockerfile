@@ -1,20 +1,23 @@
-# 1. Base image (Node.js)
-FROM node:20-alpine
-
-# 2. App directory inside container
+# Multi-stage build for Node.js Backend
+FROM node:20-alpine AS builder
 WORKDIR /app
-
-# 3. Copy package.json & package-lock.json
 COPY package*.json ./
-
-# 4. Install dependencies
-RUN npm install
-
-# 5. Copy all source code
+RUN npm ci
+COPY prisma ./prisma
+RUN npx prisma generate
 COPY . .
 
-# 6. Expose app port
-EXPOSE 5000
+# Production runner stage
+FROM node:20-alpine
+WORKDIR /app
+COPY package*.json ./
+RUN npm ci --only=production
+COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
+COPY --from=builder /app/node_modules/@prisma/client ./node_modules/@prisma/client
+COPY prisma ./prisma
+COPY src ./src
 
-# 7. Start the app
-CMD ["npm", "run", "dev"]
+EXPOSE 8000
+ENV NODE_ENV=production
+USER node
+CMD ["node", "src/server.js"]
